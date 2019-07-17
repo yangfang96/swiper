@@ -1,6 +1,6 @@
+from django.core.cache import cache
 
-
-from common import utils
+from common import utils,cache_keys
 from libs import sms
 
 
@@ -15,4 +15,10 @@ def send_verify_code(phone_num):
     code = utils.gen_random_code(length=6)
 
     # 发送验证码
-    return sms.send_verify_code(phone_num, code)
+    ret = sms.send_verify_code(phone_num, code)
+
+    if ret:
+        cache.set(cache_keys.VERIFY_CODE_KEY_PREFIX.format(phone_num),code,60*3)
+
+
+    return ret
