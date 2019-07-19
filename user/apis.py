@@ -95,16 +95,57 @@ def set_profile(request):
     else:
         return render_json(data=form.errors)
 
-def upload_avater(request):
+
+
+
+def upload_head_photo(request):
+    print('welcome to you user')
+
     user = request.user
 
-    avater = request.FILES.get('avater')
-    print(avater)
 
-    file_name = 'avater-{}'.format(int(time.time))
+    print(user)
+    #
+    # vs = request.POST.get('vs')
+    #
+    # print(vs)
+
+    head_photo = request.FILES.get('pic')
+
+
+    print(head_photo)
+
+    file_name = 'avater-{}'.format(int(time.time()))
 
     file_path = os.path.join(MEDIA_ROOT, file_name)
     print(file_name)
-    with open(file_path,"wb+") as fp:
-        for chunk in avater.chunks():
+
+    with open(file_path, 'wb+') as fp:
+
+        for chunk in head_photo.chunks():
             fp.write(chunk)
+
+    return render_json()
+
+
+def test(request):
+
+    # user = request.user
+
+    # testnum = request.POST.get('num')
+    head_photo = request.FILES.get('pic')
+
+    print('head_photo', head_photo)
+
+    file_name = 'avater-{}'.format(int(time.time()))
+
+    file_path = os.path.join(MEDIA_ROOT, file_name)
+
+    print(file_name)
+
+    with open(file_path, 'wb+') as fp:
+
+        for chunk in head_photo.chunks():
+            fp.write(chunk)
+
+    return render_json()
