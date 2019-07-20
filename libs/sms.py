@@ -19,6 +19,7 @@ def send_verify_code(phone, code):
 
     if resp.status_code == 200:
         ret = resp.json()
+        print(ret)
         if ret.get('code') == '103126':
             return True
 

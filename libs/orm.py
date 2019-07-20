@@ -1,5 +1,3 @@
-
-
 class ModelToDictMixin():
     def to_dict(self, exclude=None):
         if exclude is None:

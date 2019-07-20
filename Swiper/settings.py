@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xqrjdg&tx&ier2(9nx@0cxnlh)vgo6q^t_y_^w9-+pws6a7(4u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +41,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'common.middleware.AuthMiddleware',
+    'common.middleware.LogicExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'Swiper.urls'
