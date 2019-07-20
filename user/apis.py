@@ -95,7 +95,7 @@ def set_profile(request):
     else:
         return render_json(data=form.errors)
 
-<<<<<<< HEAD
+
 
 def upload_avatar(request):
     user = request.user
@@ -124,7 +124,7 @@ def upload_avatar(request):
     logics.async_upload_avatar.delay(user, avatar)
 
     return render_json()
-=======
+
 
 
 
@@ -179,4 +179,4 @@ def test(request):
             fp.write(chunk)
 
     return render_json()
->>>>>>> develop
+
