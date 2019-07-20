@@ -34,6 +34,10 @@ class AuthMiddleware(MiddlewareMixin):
             return render_json(code=errors.LOGIN_REQUIRED_ERR)
         print("===============")
 
+
+
+        print("===================")
+
         request.user = User.objects.get(pk=uid)
 
         # for k,v in request.META.items():

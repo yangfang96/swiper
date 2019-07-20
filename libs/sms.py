@@ -16,6 +16,7 @@ def send_verify_code(phone, code):
     params['param'] = code
 
     resp = requests.post(config.YZX_SMS_URL, json=params)
+    print(resp.status_code)
 
     if resp.status_code == 200:
         ret = resp.json()
