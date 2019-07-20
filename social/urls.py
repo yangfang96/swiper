@@ -2,6 +2,11 @@ from django.urls import path
 from social import apis
 
 
-urlpatterns =[
-    path('test', apis.test),
+urlpatterns = [
+    path('recommend', apis.recommend),
+    path('like', apis.like),
+    path('dislike', apis.dislike),
+    path('superlike', apis.superlike),
+    path('rewind', apis.rewind),
+    path('liked-me', apis.liked_me),
 ]
